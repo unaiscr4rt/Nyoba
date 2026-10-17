@@ -19,4 +19,15 @@ class AoneroomProvider : MainAPI() {
         "https://h5.aoneroom.com/id/ranking-list/8WtKSYJVEb1?id=997144265920760504&page_from=more_SUBJECTS_MOVIE" to "Popular Movie",
         "https://h5.aoneroom.com/id/ranking-list/eJvhCT8w3t1?id=1232643093049001320&page_from=more_SUBJECTS_MOVIE" to "Popular Series"
     )
+
+    override suspend fun getMainPage(
+        page: Int,
+        request: MainPageRequest
+    ): HomePageResponse {
+        return newHomePageResponse(
+            request.name,
+            emptyList(),
+            hasNext = false
+        )
+    }
 }
